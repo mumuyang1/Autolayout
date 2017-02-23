@@ -14,7 +14,8 @@ class BViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    addRedAndGreenViewUsingNSLayoutAnchor()
+//    addRedAndGreenViewUsingNSLayoutAnchor()
+    addRedAndGreenViewUsingNSLayoutContraint()
   }
   
   func addRedAndGreenViewUsingNSLayoutAnchor() {
@@ -42,5 +43,26 @@ class BViewController: UIViewController {
     greenView.topAnchor.constraint(equalTo: redView.topAnchor).isActive = true
     greenView.bottomAnchor.constraint(equalTo: redView.bottomAnchor).isActive = true
     greenView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
+  }
+  
+  func addRedAndGreenViewUsingNSLayoutContraint() {
+    let redView = UIView()
+    redView.translatesAutoresizingMaskIntoConstraints = false
+    redView.backgroundColor = UIColor.red
+    view.addSubview(redView)
+    
+    let greenView = UIView()
+    greenView.backgroundColor = UIColor.green
+    greenView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(greenView)
+   
+    NSLayoutConstraint.init(item: redView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: padding).isActive = true
+    NSLayoutConstraint.init(item: redView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: padding).isActive = true
+    NSLayoutConstraint.init(item: redView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -padding).isActive = true
+    NSLayoutConstraint.init(item: redView, attribute: .width, relatedBy: .equal, toItem: greenView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: redView, attribute: .trailing, relatedBy: .equal, toItem: greenView, attribute: .leading, multiplier: 1, constant: -padding).isActive = true
+    NSLayoutConstraint.init(item: greenView, attribute: .top, relatedBy: .equal, toItem: redView, attribute: .top, multiplier: 1, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: greenView, attribute: .bottom, relatedBy: .equal, toItem: redView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+    NSLayoutConstraint.init(item: greenView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -padding).isActive = true
   }
 }
