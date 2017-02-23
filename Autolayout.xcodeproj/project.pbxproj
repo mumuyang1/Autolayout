@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133C782A1E5F24CD006896BC /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133C78291E5F24CD006896BC /* BViewController.swift */; };
 		138C8E551E5F0599009EF778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C8E541E5F0599009EF778 /* AppDelegate.swift */; };
 		138C8E571E5F0599009EF778 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C8E561E5F0599009EF778 /* ViewController.swift */; };
 		138C8E5A1E5F0599009EF778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 138C8E581E5F0599009EF778 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		133C78291E5F24CD006896BC /* BViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
 		138C8E511E5F0599009EF778 /* Autolayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autolayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		138C8E541E5F0599009EF778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		138C8E561E5F0599009EF778 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				138C8E541E5F0599009EF778 /* AppDelegate.swift */,
 				138C8E561E5F0599009EF778 /* ViewController.swift */,
+				133C78291E5F24CD006896BC /* BViewController.swift */,
 				138C8E581E5F0599009EF778 /* Main.storyboard */,
 				138C8E5B1E5F0599009EF778 /* Assets.xcassets */,
 				138C8E5D1E5F0599009EF778 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				138C8E571E5F0599009EF778 /* ViewController.swift in Sources */,
+				133C782A1E5F24CD006896BC /* BViewController.swift in Sources */,
 				138C8E551E5F0599009EF778 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +306,7 @@
 				138C8E651E5F0599009EF778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
