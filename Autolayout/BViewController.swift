@@ -32,7 +32,12 @@ class BViewController: UIViewController {
     redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
     redView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding).isActive = true
     redView.trailingAnchor.constraint(equalTo: greenView.leadingAnchor, constant: -padding).isActive = true
-    redView.widthAnchor.constraint(equalTo: greenView.widthAnchor, multiplier:1/3).isActive = true
+    let redViewAspectWidth = redView.widthAnchor.constraint(equalTo: greenView.widthAnchor, multiplier:1/3)
+    redViewAspectWidth.priority = UILayoutPriorityDefaultHigh
+    redViewAspectWidth.isActive = true
+    let redViewMinWidth = redView.widthAnchor.constraint(greaterThanOrEqualToConstant: 150)
+    redViewMinWidth.priority = UILayoutPriorityRequired
+    redViewMinWidth.isActive = true
     
     greenView.topAnchor.constraint(equalTo: redView.topAnchor).isActive = true
     greenView.bottomAnchor.constraint(equalTo: redView.bottomAnchor).isActive = true
