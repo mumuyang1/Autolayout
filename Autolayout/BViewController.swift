@@ -15,8 +15,9 @@ class BViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    addRedAndGreenViewUsingNSLayoutAnchor()
-    addRedAndGreenViewUsingNSLayoutContraint()
+    //    addRedAndGreenViewUsingNSLayoutAnchor()
+//    addRedAndGreenViewUsingNSLayoutContraint()
+    addRedAndGreenViewUsingVFL()
   }
   
   func addRedAndGreenViewUsingNSLayoutAnchor() {
@@ -38,7 +39,7 @@ class BViewController: UIViewController {
     redViewAspectWidthConstraint.priority = UILayoutPriorityDefaultHigh
     redViewAspectWidthConstraint.isActive = true
     redView.widthAnchor.constraint(greaterThanOrEqualToConstant: redViewMinWidth).isActive = true
-  
+    
     greenView.topAnchor.constraint(equalTo: redView.topAnchor).isActive = true
     greenView.bottomAnchor.constraint(equalTo: redView.bottomAnchor).isActive = true
     greenView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding).isActive = true
@@ -67,5 +68,29 @@ class BViewController: UIViewController {
     NSLayoutConstraint.init(item: greenView, attribute: .top, relatedBy: .equal, toItem: redView, attribute: .top, multiplier: 1, constant: 0).isActive = true
     NSLayoutConstraint.init(item: greenView, attribute: .bottom, relatedBy: .equal, toItem: redView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
     NSLayoutConstraint.init(item: greenView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -padding).isActive = true
+  }
+  
+  func addRedAndGreenViewUsingVFL() {
+    let redView = UIView()
+    redView.translatesAutoresizingMaskIntoConstraints = false
+    redView.backgroundColor = UIColor.red
+    view.addSubview(redView)
+    
+    let greenView = UIView()
+    greenView.backgroundColor = UIColor.green
+    greenView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(greenView)
+    
+    let views = ["redView": redView, "greenView": greenView]
+    let horizontalFormatString = "H:|-padding-[redView]-padding-[greenView(==redView)]-padding-|"
+    let verticalFormatString = "V:|-padding-[redView]-padding-|"
+    let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: horizontalFormatString, options: [], metrics: ["padding": padding], views: views)
+    
+    let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: verticalFormatString, options: [.alignAllBottom, .alignAllTop], metrics: ["padding": padding], views: views)
+    let verticalConstraintsForGreenView = NSLayoutConstraint.constraints(withVisualFormat: "V:|-padding-[greenView]-padding-|", options: [.alignAllBottom, .alignAllTop], metrics: ["padding": padding], views: views)
+    
+    NSLayoutConstraint.activate(horizontalConstraints)
+    NSLayoutConstraint.activate(verticalConstraints)
+    NSLayoutConstraint.activate(verticalConstraintsForGreenView)
   }
 }
