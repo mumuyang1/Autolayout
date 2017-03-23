@@ -85,15 +85,7 @@ class BViewController: UIViewController {
     var allConstraints = [NSLayoutConstraint]()
     let horizontalFormatString = "H:|-padding-[redView]-padding-[greenView(==redView)]-padding-|"
     let verticalFormatString = "V:|-padding-[redView]-padding-|"
-    // wrong way
-    
-//    let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: horizontalFormatString, options: [], metrics: ["padding": padding], views: views)
-//    allConstraints += horizontalConstraints
-//    let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: verticalFormatString, options: [.alignAllBottom, .alignAllTop], metrics: ["padding": padding], views: views)
-//    allConstraints += verticalConstraints
-//    let verticalConstraintsForGreenView = NSLayoutConstraint.constraints(withVisualFormat: "V:|-padding-[greenView]-padding-|", options: [.alignAllBottom, .alignAllTop], metrics: ["padding": padding], views: views)
-    
-    // right way
+
     let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: horizontalFormatString, options: [.alignAllBottom, .alignAllTop], metrics: ["padding": padding], views: views)
     allConstraints += horizontalConstraints
     let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: verticalFormatString, options: [], metrics: ["padding": padding], views: views)
